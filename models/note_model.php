@@ -37,11 +37,12 @@ class Note_Model extends Model
         );
         
         $this->db->update('note', $postData, 
-                "`noteid` = '{$data['noteid']}' AND userid = '{$_SESSION['userid']}'");
+                "`noteid` = '$data' AND userid = '{$_SESSION['userid']}'");
     }
     
     public function delete($id)
     {
-        $this->db->delete('note', "`noteid` = {$data['noteid']} AND userid = '{$_SESSION['userid']}'");
+        $this->db->delete('note', "noteid = $id AND userid = '{$_SESSION['userid']}'");
+
     }
 }

@@ -18,14 +18,14 @@ class Dashboard_Model extends Model {
     
     public function xhrGetListings()
     {
-        $result = $this->db->select("SELECT * FROM data");
+        $result = $this->db->select("SELECT * FROM data order by 1 asc ");
         echo json_encode($result);
     }
     
     public function xhrDeleteListing()
     {
         $id = (int) $_POST['id'];
-        $this->db->delete('data', "id = '$id'");
+        $this->db->delete('data', "dataid = '$id'");
     }
 
 }

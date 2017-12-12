@@ -4,6 +4,7 @@ class Login_Model extends Model
 {
     public function __construct()
     {
+        echo Hash::create('sha256', "dupa", HASH_PASSWORD_KEY);
         parent::__construct();
     }
 
@@ -15,6 +16,7 @@ class Login_Model extends Model
             ':login' => $_POST['login'],
             ':password' => Hash::create('sha256', $_POST['password'], HASH_PASSWORD_KEY)
         ));
+
         
         $data = $sth->fetch();
         
